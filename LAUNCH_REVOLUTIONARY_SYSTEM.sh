@@ -1,13 +1,15 @@
 #!/bin/bash
 
-# LAUNCH_REVOLUTIONARY_SYSTEM.sh
-# Complete Revolutionary AI System Launcher
-# This script starts the entire autonomous AI development environment
+echo "🐳 REDIS AI CHALLENGE - REVOLUTIONARY SYSTEM LAUNCHER"
+echo "================================================================"
+echo "🎯 One-command setup for the complete AI development environment"
+echo ""
 
-set -e  # Exit on any error
-
-echo "🚀 LAUNCHING COMPLETE REVOLUTIONARY AI SYSTEM"
-echo "=" * 80
+# Check if Docker is available
+if ! command -v docker &> /dev/null; then
+    echo "❌ Docker not found. Installing via native setup..."
+    echo "🚀 LAUNCHING COMPLETE REVOLUTIONARY AI SYSTEM (Native)"
+    echo "================================================================"
 echo "🎼 Starting the Revolutionary AI Symphony"
 echo "🤖 The system that works while you walk away from it"
 echo "=" * 80

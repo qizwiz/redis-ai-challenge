@@ -155,7 +155,7 @@ MCP servers learn optimal coordination patterns and evolve the network:
 
 ### **One-Command Setup**
 ```bash
-git clone https://github.com/your-username/redis-ai-challenge
+git clone https://github.com/qizwiz/redis-ai-challenge
 cd redis-ai-challenge
 ./LAUNCH_REVOLUTIONARY_SYSTEM.sh
 ```
@@ -235,7 +235,7 @@ This project embodies the competition theme perfectly - it stands on the shoulde
 
 *This submission demonstrates how Redis can power the next generation of AI development tools - not just reactive assistants, but proactive, learning, evolving AI companions that make development truly intelligent.*
 
-**Repository:** [redis-ai-challenge](https://github.com/your-username/redis-ai-challenge)
+**Repository:** [redis-ai-challenge](https://github.com/qizwiz/redis-ai-challenge)
 **Package:** `pip install redis-ai-patterns`  
 **Demo:** `./LAUNCH_REVOLUTIONARY_SYSTEM.sh`
 

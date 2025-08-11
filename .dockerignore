@@ -1,0 +1,15 @@
+# Ignore temp files
+.#*
+*~
+.DS_Store
+*.pyc
+__pycache__/
+.git/
+.pytest_cache/
+htmlcov/
+*.egg-info/
+logs/
+redis_instances/
+*.pid
+*.log
+tmp_logs/

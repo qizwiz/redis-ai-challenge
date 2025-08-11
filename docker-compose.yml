@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  redis-ai-challenge:
+    build: .
+    ports:
+      - "6379:6379"    # Redis
+      - "8000:8000"    # MCP servers
+      - "8001:8001"    # Additional MCP ports
+      - "8002:8002"
+      - "8003:8003"
+      - "8004:8004"
+    volumes:
+      - redis_data:/var/lib/redis
+      - ./logs:/var/log/redis
+    environment:
+      - REDIS_HOST=localhost
+      - REDIS_PORT=6379
+      - AZURE_OPENAI_API_KEY=your-azure-openai-api-key-here
+      - AZURE_OPENAI_ENDPOINT=https://your-endpoint.openai.azure.com/
+      - AZURE_OPENAI_DEPLOYMENT=gpt-4.1
+    stdin_open: true
+    tty: true
+    container_name: redis-ai-revolutionary-system
+
+  # Optional: Redis Insight for GUI exploration
+  redis-insight:
+    image: redislabs/redisinsight:latest
+    ports:
+      - "8001:8001"
+    environment:
+      - RIPORT=8001
+    depends_on:
+      - redis-ai-challenge
+    profiles:
+      - gui
+
+volumes:
+  redis_data:
+    driver: local
