@@ -1,0 +1,21 @@
+Loading /Users/jonathanhill/.spacemacs...
+Loading /Users/jonathanhill/.spacemacs...done
+Loading /Users/jonathanhill/.emacs.d/private/ai-config.el (source)...
+Loading /Users/jonathanhill/.emacs.d/private/ai-augmented-emacs.el (source)...
+Loading /Users/jonathanhill/.emacs.d/private/ai-augmented-emacs.el (source)...done
+Loading /Users/jonathanhill/.emacs.d/private/jit-mcp-client.el (source)...
+Loading /Users/jonathanhill/.emacs.d/private/jit-mcp-client.el (source)...done
+Loading /Users/jonathanhill/.emacs.d/private/real-mcp-client.el (source)...
+Loading /Users/jonathanhill/.emacs.d/private/real-mcp-client.el (source)...done
+Loading /Users/jonathanhill/.emacs.d/private/ai-config.el (source)...done
+tsc-dyn-get: Using source :github (:loaded nil :recorded 0.18.0 :requested 0.18.0)
+tsc-dyn-get: Recorded version already satifies requested -> loading
+Auto-evilification could not remap these functions in map ‘archive-mode-map’:
+   - ‘archive-chgrp-entry’ originally mapped on ‘G’
+Auto-evilification could not remap these functions in map ‘tar-mode-map’:
+   - ‘tar-chgrp-entry’ originally mapped on ‘G’
+tree-sitter-langs: Grammar bundle v0.12.295 was already installed; skipped
+Loading /Users/jonathanhill/src/ftmcp/azure-claude-emacs.el (source)...
+Loading /Users/jonathanhill/src/ftmcp/azure-claude-emacs.el (source)...done
+🤖 Azure Claude integration loaded! Use C-c a c to chat
+Spacemacs is ready.

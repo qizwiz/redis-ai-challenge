@@ -1,0 +1,51 @@
+🔍 PROCESS SUPERVISION STATUS
+==============================
+
+Process: gemini-shell
+  Status: running
+  Strategy: (permanent)
+  Restarts: 0/5
+  Command: /bin/bash -i
+  PID: 78777
+  Live: (run open listen connect stop)
+
+Process: mcp-redis-lisp-server
+  Status: crashed
+  Strategy: permanent
+  Restarts: 5/5
+  Command: python3 mcp_redis_lisp_server.py
+  PID: 92751
+  Live: nil
+
+Process: emacs-persistent-vision-mcp
+  Status: crashed
+  Strategy: permanent
+  Restarts: 5/5
+  Command: python3 emacs_persistent_vision_mcp.py --stdio
+  PID: 92753
+  Live: nil
+
+Process: mcp-ai-assistant
+  Status: crashed
+  Strategy: permanent
+  Restarts: 5/5
+  Command: python3 mcp_ai_assistant.py
+  PID: 92755
+  Live: nil
+
+Process: redis-state-diff-mcp
+  Status: crashed
+  Strategy: permanent
+  Restarts: 5/5
+  Command: python3 redis_state_diff_mcp.py
+  PID: 92757
+  Live: nil
+
+Process: redis-emacs-mcp-server
+  Status: crashed
+  Strategy: permanent
+  Restarts: 5/5
+  Command: python3 redis_emacs_mcp_server.py
+  PID: 92759
+  Live: nil
+

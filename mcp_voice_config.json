@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "voice-claude-bridge": {
+      "command": "python",
+      "args": [
+        "/Users/jonathanhill/src/redis-ai-challenge/voice_claude_bridge.py"
+      ],
+      "cwd": "/Users/jonathanhill/src/redis-ai-challenge"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+(function_call (symbol) @function_name (#eq? @function_name "message"))

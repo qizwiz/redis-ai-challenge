@@ -1,0 +1,43 @@
+{
+  "name": "redis-emacs",
+  "description": "Redis-coordinated Emacs control with natural language interface",
+  "transport": {
+    "type": "stdio",
+    "command": "python",
+    "args": ["/Users/jonathanhill/src/redis-ai-challenge/redis_emacs_mcp_server.py"]
+  },
+  "capabilities": {
+    "tools": {
+      "emacs_command": {
+        "description": "Execute natural language commands in Emacs",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "command": {
+              "type": "string", 
+              "description": "Natural language command like 'switch to scratch and insert hello world'"
+            }
+          },
+          "required": ["command"]
+        }
+      },
+      "emacs_query": {
+        "description": "Query current Emacs state",
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "State to query: buffer, point, content, windows"
+            }
+          },
+          "required": ["query"]
+        }
+      }
+    }
+  },
+  "authentication": {
+    "type": "none"
+  },
+  "scope": "project"
+}

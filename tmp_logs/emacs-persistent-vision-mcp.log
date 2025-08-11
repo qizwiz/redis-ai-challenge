@@ -1,0 +1,39 @@
+🚀 Starting Emacs Persistent Vision MCP Server...
+Available tools:
+  - get_emacs_state: Get real-time Emacs state
+  - execute_elisp: Execute Elisp code
+  - switch_buffer: Switch to a buffer
+  - create_buffer_with_content: Create buffer with content
+  - split_window: Split windows
+  - goto_line: Move cursor to line
+  - insert_text: Insert text at cursor
+  - get_vision_history: See recent changes
+  - emacs_health_check: System health report
+👁️ Persistent vision enabled!
+
+
+╭─ FastMCP 2.0 ──────────────────────────────────────────────────────────────╮
+│                                                                            │
+│        _ __ ___ ______           __  __  _____________    ____    ____     │
+│       _ __ ___ / ____/___ ______/ /_/  |/  / ____/ __ \  |___ \  / __ \    │
+│      _ __ ___ / /_  / __ `/ ___/ __/ /|_/ / /   / /_/ /  ___/ / / / / /    │
+│     _ __ ___ / __/ / /_/ (__  ) /_/ /  / / /___/ ____/  /  __/_/ /_/ /     │
+│    _ __ ___ /_/    \__,_/____/\__/_/  /_/\____/_/      /_____(_)____/      │
+│                                                                            │
+│                                                                            │
+│                                                                            │
+│    🖥️  Server name:     emacs-persistent-vision                             │
+│    📦 Transport:       STDIO                                               │
+│                                                                            │
+│    📚 Docs:            https://gofastmcp.com                               │
+│    🚀 Deploy:          https://fastmcp.cloud                               │
+│                                                                            │
+│    🏎️  FastMCP version: 2.10.6                                              │
+│    🤝 MCP version:     1.12.1                                              │
+│                                                                            │
+╰────────────────────────────────────────────────────────────────────────────╯
+
+
+[08/07/25 13:50:37] INFO     Starting MCP server                  server.py:1371
+                             'emacs-persistent-vision' with                     
+                             transport 'stdio'                                  

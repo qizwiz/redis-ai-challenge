@@ -1,0 +1,56 @@
+# Redis AI Server - systemd service file
+# For Linux systems with systemd
+# 
+# Installation:
+# sudo cp redis-ai-server.service /etc/systemd/system/
+# sudo systemctl daemon-reload
+# sudo systemctl enable redis-ai-server
+# sudo systemctl start redis-ai-server
+
+[Unit]
+Description=Redis AI Server - Revolutionary AI Development Platform
+Documentation=https://github.com/user/redis-ai-challenge
+After=network.target redis.service
+Wants=redis.service
+
+[Service]
+Type=simple
+User=jonathanhill
+Group=staff
+WorkingDirectory=/Users/jonathanhill/src/redis-ai-challenge
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=PYTHONPATH=/Users/jonathanhill/src/redis-ai-challenge
+Environment=REDIS_HOST=localhost
+Environment=REDIS_PORT=6379
+Environment=SERVER_HOST=0.0.0.0
+Environment=SERVER_PORT=8883
+
+# Main service command
+ExecStart=/usr/bin/python3 /Users/jonathanhill/src/redis-ai-challenge/redis_ai_server.py
+
+# Service management
+Restart=always
+RestartSec=10
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/Users/jonathanhill/.redis-ai-logs /tmp /var/tmp
+
+# Resource limits
+LimitNOFILE=65536
+MemoryMax=2G
+CPUQuota=200%
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=redis-ai-server
+
+[Install]
+WantedBy=multi-user.target

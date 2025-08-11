@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- 
+Redis AI Server - macOS LaunchAgent
+Runs the Redis AI Server persistently on macOS
+
+Installation:
+cp com.redis-ai-server.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.redis-ai-server.plist
+launchctl start com.redis-ai-server
+
+Management:
+launchctl stop com.redis-ai-server
+launchctl unload ~/Library/LaunchAgents/com.redis-ai-server.plist
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.redis-ai-server</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/jonathanhill/.pyenv/shims/python3</string>
+        <string>/Users/jonathanhill/src/redis-ai-challenge/redis_ai_server.py</string>
+    </array>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/jonathanhill/src/redis-ai-challenge</string>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/Users/jonathanhill/.bun/bin:/Users/jonathanhill/.opencode/bin:/Users/jonathanhill/.codeium/windsurf/bin:/Users/jonathanhill/.pyenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>PYTHONPATH</key>
+        <string>/Users/jonathanhill/src/redis-ai-challenge</string>
+        <key>PYENV_ROOT</key>
+        <string>/Users/jonathanhill/.pyenv</string>
+        <key>REDIS_HOST</key>
+        <string>localhost</string>
+        <key>REDIS_PORT</key>
+        <string>6379</string>
+        <key>SERVER_HOST</key>
+        <string>0.0.0.0</string>
+        <key>SERVER_PORT</key>
+        <string>8883</string>
+    </dict>
+    
+    <!-- Service Management -->
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+        <key>Crashed</key>
+        <true/>
+    </dict>
+    
+    <!-- Process Management -->
+    <key>ProcessType</key>
+    <string>Background</string>
+    
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+    
+    <!-- Logging -->
+    <key>StandardOutPath</key>
+    <string>/Users/jonathanhill/.redis-ai-logs/server.stdout.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/Users/jonathanhill/.redis-ai-logs/server.stderr.log</string>
+    
+    <!-- Resource Limits -->
+    <key>SoftResourceLimits</key>
+    <dict>
+        <key>NumberOfFiles</key>
+        <integer>65536</integer>
+    </dict>
+    
+    <key>HardResourceLimits</key>
+    <dict>
+        <key>NumberOfFiles</key>
+        <integer>65536</integer>
+    </dict>
+    
+    <!-- Security -->
+    <key>AbandonProcessGroup</key>
+    <true/>
+    
+    <key>EnableTransactions</key>
+    <true/>
+</dict>
+</plist>

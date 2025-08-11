@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "ai-assistant": {
+      "command": "python",
+      "args": ["/Users/jonathanhill/src/redis-ai-challenge/mcp_ai_assistant.py"],
+      "env": {
+        "PYTHONPATH": "/Users/jonathanhill/src/redis-ai-challenge"
+      }
+    },
+    "redis-state-diff": {
+      "command": "python",
+      "args": ["/Users/jonathanhill/src/redis-ai-challenge/redis_state_diff_mcp.py"],
+      "env": {
+        "PYTHONPATH": "/Users/jonathanhill/src/redis-ai-challenge"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+redis==5.0.1
+openai==1.51.2
+azure-identity==1.18.0
+azure-cognitiveservices-language-textanalytics
+requests==2.31.0
+python-dotenv>=1.1.0
+psutil==5.9.8
+numpy==1.26.4
+pandas==2.2.0
+scikit-learn==1.4.0
+fastmcp>=2.10.0
+mcp>=1.12.0
+google-generativeai

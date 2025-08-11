@@ -1,0 +1,14 @@
+MCP AI Assistant: Before mcp.server import.
+MCP AI Assistant: Before genuine_ai_learning import.
+MCP AI Assistant: All imports done.
+MCP AI Assistant: Before Server instantiation.
+MCP AI Assistant: Server instantiated.
+MCPAIAssistant: __init__ started.
+MCPAIAssistant: RealLearner initialized.
+MCPAIAssistant: __init__ finished.
+MCP AI Assistant: MCPAIAssistant instantiated.
+MCP AI Assistant: Script about to run main().
+MCP AI Assistant: main() started.
+MCP AI Assistant: stdio_server context entered.
+MCP AI Assistant: server.run() finished.
+MCP AI Assistant: Script finished.
