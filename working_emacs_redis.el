@@ -253,6 +253,7 @@
   
   (message "🛑 Working Redis AI system stopped")
   (message "   Captured %d keystrokes this session" working-redis-keystroke-count))
+)
 
 (defun working-redis-status ()
   "Show current system status."

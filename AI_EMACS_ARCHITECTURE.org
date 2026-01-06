@@ -1,3 +1,10 @@
+#+TITLE: Ai Emacs Architecture
+#+FILETAGS: :buffer_agent:living_knowledge_organism:
+:PROPERTIES:
+:ID: 1754970081-1d14fa16
+:ROAM_ALIASES: 
+:END:
+
 #+TITLE: AI-Emacs Integration Architecture
 #+AUTHOR: Claude & Jonathan Hill  
 #+DATE: 2025-08-02

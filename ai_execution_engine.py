@@ -116,8 +116,6 @@ class CodeAnalyzer:
             source_code=func_source
         )
         
-        
-        
     def _has_existing_tests(self, file_path: str) -> bool:
         """Check if tests already exist for this file"""
         file_path = Path(file_path)
@@ -141,7 +139,6 @@ class CodeAnalyzer:
                     return True
                     
         return False
-        
         
     def find_untested_functions(self, project_path: str) -> List[Dict[str, Any]]:
         """Find functions that need tests"""
@@ -387,7 +384,7 @@ class CodeAnalyzer:
             'dependencies': self._extract_function_dependencies(node, content)
         }
     
-    def _calculate_doc_coverage(self, functions):
+    def _calculate__doc_coverage(self, functions):
         """Calculate documentation coverage percentage"""
         if not functions:
             return 100.0
@@ -454,4 +451,37 @@ sys.path.insert(0, str(Path(__file__).parent))
 try:
     from {module_name} import {func_name}
 except ImportError as e:
-    print(f
+    print(f"Failed to import {func_name} from {module_name}: {{e}}")
+    # As a fallback, create a mock function
+    {func_name} = MagicMock()
+
+class Test{func_name.title().replace("_", "")}(unittest.TestCase):
+    """Test cases for the {func_name} function."""
+
+    def setUp(self):
+        """Set up test fixtures, if any."""
+        pass
+
+    def tearDown(self):
+        """Tear down test fixtures, if any."""
+        pass
+
+    def test_basic_functionality(self):
+        """Test basic functionality of {func_name}."""
+        # TODO: Implement a simple, happy-path test case.
+        self.fail("Test not implemented")
+
+    def test_edge_cases(self):
+        """Test edge cases for {func_name}."""
+        # TODO: Implement tests for edge cases like empty inputs, invalid values, etc.
+        pass
+
+    def test_error_handling(self):
+        """Test error handling for {func_name}."""
+        # TODO: Test how the function handles expected errors and exceptions.
+        pass
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
+'''
+        return test_content

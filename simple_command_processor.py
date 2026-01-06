@@ -18,17 +18,20 @@ def main():
             if command:
                 print(f"📋 Executing: {command}")
 
-                # Execute via emacsclient
+                # Execute via emacsclient 
                 result = subprocess.run(
-                    ["emacsclient", "--eval", command],
+                    ["emacsclient", "-s", "claude", "--eval", command],
                     capture_output=True,
                     text=True,
-                    timeout=5,
+                    timeout=10,
                 )
 
                 if result.returncode == 0:
                     print(f"✅ Success: {result.stdout.strip()}")
                     r.set("emacs:last_command_result", result.stdout.strip())
+                    # Store state info in Redis
+                    if "buffer" in command.lower() or "point" in command.lower():
+                        r.hset("emacs:state", "last_query", result.stdout.strip())
                 else:
                     print(f"❌ Error: {result.stderr}")
                     r.set("emacs:last_command_result", f"error: {result.stderr}")

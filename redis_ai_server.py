@@ -22,7 +22,7 @@ import redis
 
 # Internal components
 from always_on_ai_workforce import PersistentBackgroundAgent, BackgroundTaskType
-from ai_execution_engine import RealAIWorkforceEngine
+from ai_execution_engine import LLMExecutor
 from claude_api_integration import ClaudeCodeIntegration
 from mcp_tool_composition import MCPToolExecutor
 
@@ -61,7 +61,7 @@ class RedisAIServer:
         )
 
         # Core components
-        self.ai_engine = RealAIWorkforceEngine(self.redis)
+        self.ai_engine = LLMExecutor(self.redis)
         self.claude_integration = ClaudeCodeIntegration(self.redis)
         self.mcp_executor = MCPToolExecutor(self.redis)
 
@@ -873,4 +873,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        import pdb, traceback
+        traceback.print_exc()
+        print(">>> An exception was caught. Entering post-mortem debugger. <<<")
+        pdb.post_mortem()

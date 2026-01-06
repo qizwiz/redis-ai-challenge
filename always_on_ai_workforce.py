@@ -118,9 +118,9 @@ class PersistentBackgroundAgent:
         # Setup logging
         self.logger = self._setup_logging()
 
-        # Register signal handlers for graceful shutdown
-        signal.signal(signal.SIGTERM, self._handle_shutdown)
-        signal.signal(signal.SIGINT, self._handle_shutdown)
+        # Register signal handlers for graceful shutdown (MOVED TO MAIN SERVER)
+        # signal.signal(signal.SIGTERM, self._handle_shutdown)
+        # signal.signal(signal.SIGINT, self._handle_shutdown)
 
     def start_background_work(self):
         """Start the agent working in the background"""

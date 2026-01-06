@@ -1,38 +1,3 @@
 {
-  "mcpServers": {
-    "redis-lisp": {
-      "command": "sbcl",
-      "args": [
-        "--script",
-        "pure_sbcl_mcp_server.lisp"
-      ],
-      "env": {},
-      "description": "Pure SBCL Redis Lisp homoiconic execution server - ZERO PYTHON"
-    },
-    "redis-lisp-python": {
-      "command": "python",
-      "args": [
-        "mcp_redis_lisp_server.py"
-      ],
-      "env": {},
-      "description": "Redis Lisp homoiconic execution server (Python fallback)"
-    },
-    "emacs-vision": {
-      "command": "python",
-      "args": [
-        "emacs_persistent_vision_mcp.py",
-        "--stdio"
-      ],
-      "env": {},
-      "description": "Emacs Persistent Vision - Real-time bidirectional Emacs control with visual awareness"
-    },
-    "mcp-registry": {
-      "command": "python",
-      "args": [
-        "mcp_registry_server.py"
-      ],
-      "env": {},
-      "description": "Meta-MCP Server Registry - JIT server management with connection pooling"
-    }
-  }
+  "mcpServers": {}
 }

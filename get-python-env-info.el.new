@@ -1,0 +1,7 @@
+(defun get-python-env-info () "Get information about the Python environment Emacs is using." (interactive) (let* ((output-buffer (get-buffer-create "*Python Env Info*")) (which-python-cmd "which python3") (sys-path-cmd "python3 -c \"import sys; print(sys.path)\"") (redis-test-cmd "python3 -c \"import redis; print('Redis found!')\"")) (with-current-buffer output-buffer (erase-buffer) (insert "--- which python3 ---
+") (insert (shell-command-to-string which-python-cmd) "
+") (insert "--- python3 -c \"import sys; print(sys.path)\" ---
+") (insert (shell-command-to-string sys-path-cmd) "
+") (insert "--- python3 -c \"import redis; print('Redis found!')\" ---
+") (insert (shell-command-to-string redis-test-cmd) "
+") (goto-char (point-min)) (message "Python environment info collected in *Python Env Info* buffer.")) (display-buffer output-buffer) ;; Return the content of the buffer directly (with-current-buffer output-buffer (buffer-string))))

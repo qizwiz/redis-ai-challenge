@@ -2,6 +2,8 @@
 # Redis AI Challenge - Quick Demo Setup
 # Get running in under 2 minutes!
 
+SCRIPT_DIR=$(dirname "$0")
+
 echo "🚀 Redis AI Challenge - Quick Demo Setup"
 echo "========================================"
 
@@ -15,7 +17,8 @@ if ! command -v redis-server &> /dev/null; then
         if command -v brew &> /dev/null; then
             brew install redis
         else
-            echo "❌ Please install Homebrew first: /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+            echo "❌ Please install Homebrew first: /bin/bash -c \"\
+$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
             exit 1
         fi
     elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -53,26 +56,36 @@ else
     echo "✅ Redis server already running"
 fi
 
+# Create and activate virtual environment
+echo "🐍 Creating Python virtual environment in $SCRIPT_DIR/venv..."
+python3 -m venv "$SCRIPT_DIR/venv"
+source "$SCRIPT_DIR/venv/bin/activate"
+
 # Install Python dependencies
 echo "📦 Installing Python dependencies..."
-pip install redis requests
+python3 -m pip install redis requests
 
 # Verify installation
 echo "🔍 Verifying setup..."
-if python -c "import redis; r=redis.Redis(); r.ping()" 2>/dev/null; then
+if python3 -c "import redis; r=redis.Redis(); r.ping()" 2>/dev/null; then
     echo "✅ Python Redis client working"
 else
     echo "❌ Python Redis client not working. Try: pip install redis"
     exit 1
 fi
 
+
 echo ""
 echo "🎉 Setup complete! Ready to run the demo:"
 echo ""
-echo "   python standalone_redis_ai_demo.py"
+echo "   source $SCRIPT_DIR/venv/bin/activate"
+echo "   python3 $SCRIPT_DIR/standalone_redis_ai_demo.py"
+
 echo ""
 echo "🔍 After running, explore the data with:"
-echo "   redis-cli KEYS '*'"
+echo "   redis-cli KEYS '* ' "
 echo "   redis-cli HGETALL redis_ai_challenge:final_report"
+
+
 echo ""
 echo "🚀 Redis AI Challenge demo ready to go!"

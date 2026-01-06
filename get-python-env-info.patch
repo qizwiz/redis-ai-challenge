@@ -1,0 +1,17 @@
+--- /Users/jonathanhill/src/redis-ai-challenge/get-python-env-info.el.orig	2025-08-13 09:43:45
++++ /Users/jonathanhill/src/redis-ai-challenge/get-python-env-info.el.new	2025-08-13 09:43:53
+@@ -1,7 +1,7 @@
+-(defun get-python-env-info () "Get information about the Python environment Emacs is using." (interactive) (let* ((output-buffer (get-buffer-create "*Python Env Info*")) (which-python-cmd "which python3") (sys-path-cmd "python3 -c \"import sys; print(sys.path)\"") (redis-test-cmd "python3 -c \"import redis; print('Redis found!')\"") (which-python-output "") (sys-path-output "") (redis-test-output "")) (with-current-buffer output-buffer (erase-buffer) (insert "--- which python3 ---
+-") (setq which-python-output (shell-command-to-string which-python-cmd)) (insert which-python-output "
++(defun get-python-env-info () "Get information about the Python environment Emacs is using." (interactive) (let* ((output-buffer (get-buffer-create "*Python Env Info*")) (which-python-cmd "which python3") (sys-path-cmd "python3 -c \"import sys; print(sys.path)\"") (redis-test-cmd "python3 -c \"import redis; print('Redis found!')\"")) (with-current-buffer output-buffer (erase-buffer) (insert "--- which python3 ---
++") (insert (shell-command-to-string which-python-cmd) "
+ ") (insert "--- python3 -c \"import sys; print(sys.path)\" ---
+-") (setq sys-path-output (shell-command-to-string sys-path-cmd)) (insert sys-path-output "
++") (insert (shell-command-to-string sys-path-cmd) "
+ ") (insert "--- python3 -c \"import redis; print('Redis found!')\" ---
+-") (setq redis-test-output (shell-command-to-string redis-test-cmd)) (insert redis-test-output "
+-") (goto-char (point-min)) (message "Python environment info collected in *Python Env Info* buffer.")) (display-buffer output-buffer) (buffer-string output-buffer)))
+\ No newline at end of file
++") (insert (shell-command-to-string redis-test-cmd) "
++") (goto-char (point-min)) (message "Python environment info collected in *Python Env Info* buffer.")) (display-buffer output-buffer) ;; Return the content of the buffer directly (with-current-buffer output-buffer (buffer-string))))
+\ No newline at end of file
