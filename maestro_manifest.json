@@ -1,0 +1,34 @@
+{
+    "fsevents_listener": {
+        "path": "fsevents_listener.py",
+        "type": "python"
+    },
+    "nomai_agent": {
+        "path": "nomai_agent.py",
+        "type": "python"
+    },
+    "thinking_service": {
+        "path": "thinking_service.py",
+        "type": "python"
+    },
+    "heartbeat_agent": {
+        "path": "heartbeat_agent.py",
+        "type": "python"
+    },
+    "crypto_verifier": {
+        "path": "crypto_verifier.py",
+        "type": "python"
+    },
+    "belief_updater": {
+        "path": "belief_updater.py",
+        "type": "python"
+    },
+    "visualization_server": {
+        "path": "visualization_server.py",
+        "type": "python"
+    },
+    "supervisor_agent": {
+        "path": "supervisor_agent.py",
+        "type": "python"
+    }
+}

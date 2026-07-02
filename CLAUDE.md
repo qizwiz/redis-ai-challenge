@@ -25,7 +25,7 @@ This is the Redis AI Challenge 2025 submission: "Standing on Giants' Shoulders" 
 
 ## Architecture Overview
 
-### Core Library: `redis_ai_patterns/`
+### Core Library: `redis_ai_patterns/`Hello from the Facade!
 The system is built around a modular Redis AI patterns library:
 
 - **`core.py`**: `RedisAIBase` abstract class providing connection management, namespaced keys, JSON storage

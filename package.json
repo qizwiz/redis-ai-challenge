@@ -1,0 +1,28 @@
+{
+  "name": "redis-ai-challenge",
+  "version": "1.0.0",
+  "description": "🏆 **Redis AI Challenge 2025 Submission**",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qizwiz/redis-ai-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qizwiz/redis-ai-challenge/issues"
+  },
+  "homepage": "https://github.com/qizwiz/redis-ai-challenge#readme",
+  "dependencies": {
+    "redis": "^5.10.0",
+    "tree-sitter": "^0.25.0",
+    "ws": "^8.19.0"
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supervisor :: Activity Stream</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #1a1a1a;
+            color: #00ff00;
+            margin: 0;
+            padding: 20px;
+            overflow-y: scroll;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid #00ff00;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+        }
+        .log-entry {
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dotted #008800;
+        }
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+        .timestamp {
+            color: #00cc00;
+            font-size: 0.8em;
+        }
+        .action {
+            color: #00ffff;
+            font-weight: bold;
+        }
+        .service {
+            color: #ffff00;
+        }
+        .message {
+            color: #ffffff;
+        }
+        .pid {
+            color: #ff00ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Supervisor :: Activity Stream</h1>
+        <div id="log-container">
+            <!-- Log entries will be inserted here -->
+        </div>
+    </div>
+
+    <script>
+        const logContainer = document.getElementById('log-container');
+
+        async function fetchLogs() {
+            try {
+                const response = await fetch('/api/log');
+                const data = await response.json();
+                
+                logContainer.innerHTML = ''; // Clear existing logs
+
+                data.logs.forEach(entry => {
+                    const logEntry = document.createElement('div');
+                    logEntry.classList.add('log-entry');
+
+                    const details = entry.data;
+                    const timestamp = new Date(parseFloat(details.timestamp) * 1000).toLocaleString();
+                    const action = details.action;
+                    const service = details.service || 'N/A';
+                    const message = details.message || 'N/A';
+                    const pid = details.pid || 'N/A';
+
+                    logEntry.innerHTML = `
+                        <span class="timestamp">[${timestamp}]</span>
+                        <span class="action">${action.toUpperCase()}</span>
+                        <span class="service">Service: ${service}</span>
+                        <span class="pid">PID: ${pid}</span>
+                        <span class="message">Message: ${message}</span>
+                    `;
+                    logContainer.appendChild(logEntry);
+                });
+
+                logContainer.scrollTop = logContainer.scrollHeight; // Auto-scroll to bottom
+
+            } catch (error) {
+                console.error('Error fetching logs:', error);
+                logContainer.innerHTML = '<div style="color: red;">Error connecting to log server.</div>';
+            }
+        }
+
+        fetchLogs(); // Fetch logs immediately on load
+        setInterval(fetchLogs, 2000); // Refresh every 2 seconds
+    </script>
+</body>
+</html>
