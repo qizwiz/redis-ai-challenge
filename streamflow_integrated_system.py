@@ -54,12 +54,6 @@ class MLJob:
     processing_started_at: Optional[datetime] = None
     
     def __post_init__(self):
-    """
-    TODO: Document __post_init__ function
-
-    This function requires documentation. 
-    Args and return value need to be documented based on the implementation.
-    """
         if self.created_at is None:
             self.created_at = datetime.now(timezone.utc)
 

@@ -398,27 +398,27 @@ def demo_dream_bridge():
     
     # Add custom pulse handler
     def learning_handler(pulse: EmacsPulse):
-    """
-    Handles learning events based on Emacs pulse data with magnitude threshold filtering.
+        """
+        Handles learning events based on Emacs pulse data with magnitude threshold filtering.
 
-    This function processes EmacsPulse events and logs learning activities when the
-    change magnitude exceeds a predefined threshold of 0.3. It's designed to capture
-    significant editor events that indicate meaningful user activity worth learning from.
+        This function processes EmacsPulse events and logs learning activities when the
+        change magnitude exceeds a predefined threshold of 0.3. It's designed to capture
+        significant editor events that indicate meaningful user activity worth learning from.
 
-    Args:
-        pulse (EmacsPulse): An EmacsPulse object containing event data including
-            event_type, source_buffer, and change_magnitude attributes.
+        Args:
+            pulse (EmacsPulse): An EmacsPulse object containing event data including
+                event_type, source_buffer, and change_magnitude attributes.
 
-    Returns:
-        None: This function performs logging and doesn't return a value.
+        Returns:
+            None: This function performs logging and doesn't return a value.
 
-    Example:
-        >>> pulse = EmacsPulse(event_type="buffer-change", 
-        ...                   source_buffer="main.py", 
-        ...                   change_magnitude=0.5)
-        >>> learning_handler(pulse)
-        📚 Learning: buffer-change in main.py
-    """
+        Example:
+            >>> pulse = EmacsPulse(event_type="buffer-change", 
+            ...                   source_buffer="main.py", 
+            ...                   change_magnitude=0.5)
+            >>> learning_handler(pulse)
+            📚 Learning: buffer-change in main.py
+        """
         if pulse.change_magnitude > 0.3:
             print(f"📚 Learning: {pulse.event_type} in {pulse.source_buffer}")
             

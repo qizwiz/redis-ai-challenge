@@ -41,7 +41,6 @@ class LearningMemory:
     
     def __post_init__(self):
         if self.confusion_points is None:
-    """TODO: Document __post_init__ function"""
             self.confusion_points = []
         if self.understanding_notes is None:
             self.understanding_notes = []
@@ -53,7 +52,6 @@ class LearningMemory:
     @property
     def skill_level(self) -> SkillLevel:
         if self.confidence < 0.3:
-    """TODO: Document skill_level function"""
             return SkillLevel.NOVICE
         elif self.confidence < 0.5:
             return SkillLevel.BEGINNER

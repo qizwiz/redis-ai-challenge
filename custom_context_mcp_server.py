@@ -69,8 +69,7 @@ def dispatch_tool_call(method_name, params):
     return tool_map[method_name].fn(args_json)
 
 def main():
-    sys.stderr.write("--- Custom Context MCP Server Starting ---
-")
+    sys.stderr.write("--- Custom Context MCP Server Starting ---\n")
     sys.stderr.flush()
 
     for line in sys.stdin:

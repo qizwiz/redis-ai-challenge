@@ -187,7 +187,7 @@ mcp = FastMCP("{server_name}")
 r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
 @mcp.tool()
-def {func_name.replace('-', '_')}(*args) -> str:
+def {re.sub(r'\\W', '_', func_name)}(*args) -> str:
     """
     Dynamically generated tool for {func_name}
     🚀 Created by MCP Lisp JIT server generation!

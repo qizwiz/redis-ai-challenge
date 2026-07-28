@@ -57,7 +57,6 @@ class LispLinguisticAnalyzer:
         # Reverse mapping: function -> part of speech
         self.pos_lookup = {}
         for pos, functions in self.function_pos.items():
-    """TODO: Document __init__ function"""
             for func in functions:
                 self.pos_lookup[func] = pos
     

@@ -5,6 +5,7 @@ Creates MCP servers that automatically call other MCP servers through Lisp coord
 """
 
 import os
+import re
 import json
 import redis
 from typing import Dict, List, Any
@@ -66,6 +67,14 @@ if __name__ == "__main__":
 '''
     
     def generate_composable_tool(self, func_name: str, args_spec: List[str], description: str) -> str:
+        # A tool name is namespaced (e.g. "mcp:tasks:database_query"); colons/dots/hyphens are legal
+        # there but NOT in a Python identifier. Emitting it verbatim into `def {func_name}(...)` is
+        # what produced jit_mcp:tasks:database_query_server.py, a generated file that cannot parse on
+        # any machine. Only the DEF needs sanitising -- the Lisp name, context and display strings
+        # below intentionally keep the original namespaced form.
+        py_name = re.sub(r"\W", "_", func_name) or "tool"
+        if py_name[0].isdigit():
+            py_name = "t_" + py_name
         """Generate a tool that uses MCP composition"""
         
         # Create Lisp workflow for this function
@@ -83,7 +92,7 @@ if __name__ == "__main__":
         
         tool_def = f'''
 @mcp.tool()
-def {func_name}({args_params}) -> str:
+def {py_name}({args_params}) -> str:
     """
     {description}
     This tool automatically composes with other MCP servers for enhanced results

@@ -75,12 +75,6 @@ class ClaudeProvider(AIProvider):
     """Claude (Anthropic) AI provider"""
     
     def __init__(self, api_key: Optional[str] = None):
-    """
-    TODO: Document __init__ function
-
-    This function requires documentation. 
-    Args and return value need to be documented based on the implementation.
-    """
         self.api_key = api_key or os.getenv("ANTHROPIC_API_KEY")
         if not self.api_key and ANTHROPIC_AVAILABLE:
             print("⚠️ ANTHROPIC_API_KEY not set - Claude provider disabled")

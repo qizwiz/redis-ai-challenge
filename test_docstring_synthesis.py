@@ -19,7 +19,6 @@ def test_docstring_synthesis():
     mappings = engine.build_semantic_mappings()
     
     if not mappings:
-    """TODO: Document test_docstring_synthesis function"""
         print("❌ No mappings created - aborting test")
         return
     

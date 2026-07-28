@@ -14,7 +14,7 @@ mcp = FastMCP("jit-mcp:tasks:database-query")
 r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
 @mcp.tool()
-def mcp:tasks:database_query(*args) -> str:
+def mcp_tasks_database_query(*args) -> str:
     """
     Dynamically generated tool for mcp:tasks:database-query
     🚀 Created by MCP Lisp JIT server generation!
